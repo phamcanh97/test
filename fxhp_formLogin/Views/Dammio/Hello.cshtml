@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Hello";
+}
+
+<h2>Dammio</h2>
+<p>Đây là trang dammio</p>
+<ul>
+    @for (int i = 0; i < ViewBag.NumInt; i++)
+    {
+        <li>@ViewBag.Message</li>
+    }
+    <p>Nội dung sau khi chạy xong for</p>
+</ul>

@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="quanlysinhvienModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="LOP">
+          <Key>
+            <PropertyRef Name="malop" />
+          </Key>
+          <Property Name="malop" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="tenlop" Type="nvarchar" MaxLength="30" />
+          <Property Name="phong" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="SINHVIEN">
+          <Key>
+            <PropertyRef Name="masv" />
+          </Key>
+          <Property Name="masv" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="30" />
+          <Property Name="address" Type="nvarchar" MaxLength="30" />
+          <Property Name="phone" Type="int" />
+          <Property Name="malop" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK__SINHVIEN__malop__1273C1CD">
+          <End Role="LOP" Type="Self.LOP" Multiplicity="0..1" />
+          <End Role="SINHVIEN" Type="Self.SINHVIEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOP">
+              <PropertyRef Name="malop" />
+            </Principal>
+            <Dependent Role="SINHVIEN">
+              <PropertyRef Name="malop" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="quanlysinhvienModelStoreContainer">
+          <EntitySet Name="LOP" EntityType="Self.LOP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SINHVIEN" EntityType="Self.SINHVIEN" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__SINHVIEN__malop__1273C1CD" Association="Self.FK__SINHVIEN__malop__1273C1CD">
+            <End Role="LOP" EntitySet="LOP" />
+            <End Role="SINHVIEN" EntitySet="SINHVIEN" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="quanlysinhvienModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="LOP">
+          <Key>
+            <PropertyRef Name="malop" />
+          </Key>
+          <Property Name="malop" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tenlop" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="phong" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SINHVIEN">
+          <Key>
+            <PropertyRef Name="masv" />
+          </Key>
+          <Property Name="masv" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="Int32" />
+          <Property Name="malop" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="quanlysinhvienEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LOP" EntityType="Self.LOP" />
+          <EntitySet Name="SINHVIEN" EntityType="Self.SINHVIEN" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="quanlysinhvienModelStoreContainer" CdmEntityContainer="quanlysinhvienEntities">
+          <EntitySetMapping Name="LOP">
+            <EntityTypeMapping TypeName="quanlysinhvienModel.LOP">
+              <MappingFragment StoreEntitySet="LOP">
+                <ScalarProperty Name="malop" ColumnName="malop" />
+                <ScalarProperty Name="tenlop" ColumnName="tenlop" />
+                <ScalarProperty Name="phong" ColumnName="phong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SINHVIEN">
+            <EntityTypeMapping TypeName="quanlysinhvienModel.SINHVIEN">
+              <MappingFragment StoreEntitySet="SINHVIEN">
+                <ScalarProperty Name="masv" ColumnName="masv" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="malop" ColumnName="malop" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="quanlysinhvienModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="LOP">
+    <Key>
+      <PropertyRef Name="malop" />
+    </Key>
+    <Property Name="malop" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tenlop" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="phong" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SINHVIEN">
+    <Key>
+      <PropertyRef Name="masv" />
+    </Key>
+    <Property Name="masv" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="address" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="phone" Type="Int32" />
+    <Property Name="malop" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="quanlysinhvienEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="LOP" EntityType="Self.LOP" />
+    <EntitySet Name="SINHVIEN" EntityType="Self.SINHVIEN" />
+  </EntityContainer>
+</Schema>
